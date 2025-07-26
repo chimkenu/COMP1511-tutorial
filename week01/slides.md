@@ -33,8 +33,8 @@ Admin stuff
 <!-- new_line -->
 
 - TigerVNC (VLAB) Alternatives:
-    - SSH FS (recommended) [https://abiram.me/cse-setup](https://abiram.me/cse-setup)
-    - just SSH (NOT recommended) [https://taggi.cse.unsw.edu.au/FAQ/Logging_In_With_SSH/](https://taggi.cse.unsw.edu.au/FAQ/Logging_In_With_SSH/)
+    - SSH FS (recommended) `https://abiram.me/cse-setup`
+    - just SSH (NOT recommended) `https://taggi.cse.unsw.edu.au/FAQ/Logging_In_With_SSH/`
 
 <!-- end_slide -->
 
@@ -168,7 +168,8 @@ Escape sequences
 ```c +exec
 /// #include <stdio.h>
 /// int main(void) {
-printf("new\nline\n");      // prints new line (separated by a new line)
+printf("new\nline\n");      // prints new
+                            //        line
 printf("tab\tcharacter\n"); // prints tab    character
 printf("back\\slash\n");    // prints back\slash
 /// }
@@ -198,7 +199,7 @@ int main(void) {
 Exercise #2 Solution
 ---
 
-```c
+```c {all|1-7|9|11,18|12-15|17|all}
 // Face
 // face.c
 //
