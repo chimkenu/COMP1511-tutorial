@@ -45,6 +45,24 @@ Linux
 
 <!-- end_slide -->
 
+Exercise #1
+---
+
+<!-- incremental_lists: true -->
+<!-- list_item_newlines: 2 -->
+1. List all the files in our current directory
+    - `ls`
+2. Create a directory called "test"
+    - `mkdir test`
+3. Move into the new directory
+    - `cd test`
+4. Create a new C file called "hello_world.c"
+    - `touch hello_world.c`
+5. Open "hello_world.c" in VSCode
+    - `code hello_world.c`
+
+<!-- end_slide -->
+
 Commands
 ---
 
@@ -54,7 +72,7 @@ Commands
 | ------------- | --------------------------------------------- |
 | `ls`          | List the contents of a directory              |
 | `mkdir`       | Make (create) a new directory                 |
-| `cd`          | Open a directory                              |
+| `cd`          | Open/Move to a directory                      |
 | `cd ..`       | Go back to the parent directory               |
 | `code <file>` | Open/create a file                            |
 | `rm`          | Remove a file                                 |
@@ -86,6 +104,29 @@ Terminal shortcuts
 
 C code features
 ===
+
+<!-- end_slide -->
+
+Exercise #2
+---
+
+Write a C program that prints the face:
+```text
+~ ~
+0 0
+ o
+ -
+```
+
+<!-- pause -->
+
+Then modify it to print the face:
+```text
+~ ~
+0 0
+ o
+\_/
+```
 
 <!-- end_slide -->
 
@@ -124,6 +165,15 @@ Escape sequences
   - `\\` - literal `\` character
   - `\t` - tab (differs from machine to machine)
 
+```c +exec
+/// #include <stdio.h>
+/// int main(void) {
+printf("new\nline\n");      // prints new line (separated by a new line)
+printf("tab\tcharacter\n"); // prints tab    character
+printf("back\\slash\n");    // prints back\slash
+/// }
+```
+
 <!-- end_slide -->
 
 Main function
@@ -142,3 +192,48 @@ int main(void) {
     return 0;
 }
 ```
+
+<!-- end_slide -->
+
+Exercise #2 Solution
+---
+
+```c
+// Face
+// face.c
+//
+// This program was written by Marcus Alejo (z5559853)
+// on 2025-07-27
+//
+// A simple C program that prints a smiley face!
+
+#include <stdio.h>
+
+int main(void) {
+    printf("~ ~\n");
+    printf("0 0\n");
+    printf(" o\n");
+    printf("\\_/\n");
+
+    return 0;
+}
+```
+
+<!-- end_slide -->
+
+Let's go to the lab!
+---
+
+- You can find the lab questions on the course website.
+    - Scroll down to `Laboratory`
+    - Click on `Problem Set`
+<!-- new_line -->
+- When logging in for the first time, you might be given a popup.
+    - Make sure to select `use default config`
+<!-- new_line -->
+- Labs are usually due the following `Monday at 6 pm`
+    - e.g. Week 1 lab will be due Week 2 Monday 18:00
+<!-- new_line -->
+- Make sure you are familiar with how to submit your work! Details are given at the bottom of each exercise.
+<!-- new_line -->
+- First lab (week 1) is `not marked`, but week 2 onwards will be!
