@@ -11,7 +11,7 @@
     - Assignments (2 worth 15% each)
     - Problem Sets (Labs) (1 set per week worth 2% each)
 - Where to go for help with course work
-    - General help: discourse / tut-labs
+    - General help: course forum / tut-labs
     - Specific help: help sessions (starting week 3)
     - Special/Others didn't help: email course account [cs1511@unsw.edu.au](mailto:cs1511@unsw.edu.au)
     - Course page: [https://cgi.cse.unsw.edu.au/~cs1511/current/](https://cgi.cse.unsw.edu.au/~cs1511/current/) (or search `comp1511` on google)
