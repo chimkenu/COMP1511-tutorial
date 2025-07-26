@@ -25,7 +25,7 @@ Admin stuff
 
 - Where to go for help with course work
     - Course page: `https://cgi.cse.unsw.edu.au/~cs1511/current/` (or search `comp1511` on google)
-    - General help: discourse / tut-labs
+    - General help: course forum / tut-labs
     - Specific help: help sessions (starting week 3)
     - Special/Others didn't help: email course account `cs1511@unsw.edu.au`
 
