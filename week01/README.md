@@ -27,7 +27,7 @@
 | ------------- | --------------------------------------------- |
 | `ls`          | List the contents of a directory              |
 | `mkdir`       | Make (create) a new directory                 |
-| `cd`          | Open a directory                              |
+| `cd`          | Open/Move to a directory                      |
 | `cd ..`       | Go back to the parent directory               |
 | `code <file>` | Open/create a file                            |
 | `rm`          | Remove a file                                 |
