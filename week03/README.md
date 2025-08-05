@@ -141,10 +141,10 @@ Scanned 0 characters a
 
 ## For loop (Optional)
 
-- You can do anything a for loop can do with a while loop.
-  However, for loops can be useful in cases where you know
+- You can do anything a `for` loop can do with a `while` loop.
+  However, `for` loops can be useful in cases where you know
   the number of times a loop will be executed.
-- For loops help avoid certain bugs by enforcing structure
+- `for` loops help avoid certain bugs by enforcing structure
   on initialization, condition, and increment operations.
   This makes it less likely to forget or misplace the `i++`
   or `i = 0` operations.
@@ -152,6 +152,8 @@ Scanned 0 characters a
 Example:
 ```c
 // oh no! this will not work as intended.
+#include <stdio.h>
+
 #define SIZE 3
 
 int main(void) {
@@ -159,7 +161,7 @@ int main(void) {
         { 1, 2, 3 },
         { 4, 5, 6 },
         { 7, 8, 9 }
-    }
+    };
 
     int i = 0;
     int j = 0;
@@ -176,6 +178,8 @@ int main(void) {
 
 ```c
 // this will work
+#include <stdio.h>
+
 #define SIZE 3
 
 int main(void) {
@@ -183,7 +187,7 @@ int main(void) {
         { 1, 2, 3 },
         { 4, 5, 6 },
         { 7, 8, 9 }
-    }
+    };
 
     for (int i = 0; i < SIZE; i++) {
         for (int j = 0; j < SIZE; j++) {
