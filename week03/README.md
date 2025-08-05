@@ -1,4 +1,4 @@
-# COMP1511 Tutorial 03
+# COMP1511 Tutorial - Week 03
 
 ## While Loops
 
@@ -42,15 +42,17 @@ while (answer != 'y') {
 
 ```c
 int row = 0;
-int col = 0;
-
 while (row < MAX_ROW) {
-    col = 0;
+    printf("Outer loop running, row = %d\n", row);
+
+    // inner loop starts here
+    int col = 0;
     while (col < MAX_COL) {
         print("Inner loop running, col = %d\n", col);
         col++;
     }
-    printf("Outer loop running, row = %d\n", row);
+    // end of inner loop
+
     row++;
 }
 ```
@@ -69,6 +71,13 @@ struct coffee {
     double num_sugars;
     char size;
 };
+
+int main(void) {
+    struct coffee my_coffee;
+    my_coffee.type = LATTE;
+    my_coffee.num_sugars = 2;
+    my_coffee.size = 'L';
+}
 ```
 
 ## Enums
@@ -87,6 +96,10 @@ enum coffee_type {
     AMERICANO,      // value = 3
     MATCHA = 5      // value = 5
 };
+
+int main(void) {
+    printf("%d\n", LATTE); // will print 0
+}
 ```
 
 ## `scanf` in a loop
@@ -125,3 +138,59 @@ Scanned 1 characters a
 [CTRL+D]
 Scanned 0 characters a
 ```
+
+## For loop (Optional)
+
+- You can do anything a for loop can do with a while loop.
+  However, for loops can be useful in cases where you know
+  the number of times a loop will be executed.
+- For loops help avoid certain bugs by enforcing structure
+  on initialization, condition, and increment operations.
+  This makes it less likely to forget or misplace the `i++`
+  or `i = 0` operations.
+
+Example:
+```c
+// oh no! this will not work as intended.
+#define SIZE 3
+
+int main(void) {
+    int array[SIZE][SIZE] = {
+        { 1, 2, 3 },
+        { 4, 5, 6 },
+        { 7, 8, 9 }
+    }
+
+    int i = 0;
+    int j = 0;
+    while (i < SIZE) {
+        while (j < SIZE) {
+            printf("%d ", array[i][j]);
+            j++;
+        }
+        printf("\n");
+        i++;
+    }
+}
+```
+
+```c
+// this will work
+#define SIZE 3
+
+int main(void) {
+    int array[SIZE][SIZE] = {
+        { 1, 2, 3 },
+        { 4, 5, 6 },
+        { 7, 8, 9 }
+    }
+
+    for (int i = 0; i < SIZE; i++) {
+        for (int j = 0; j < SIZE; j++) {
+            printf("%d ", array[i][j]);
+        }
+        printf("\n");
+    }
+}
+```
+
