@@ -100,7 +100,7 @@ Let's try to recall all the operators that have been discussed in the lectures.
 | Type of Operator | Operators         |
 | ---------------- | ----------------- |
 | Arithmetic       | `+ - * / %`       |
-| Logic            | `&& \|\| !`       |
+| Logical          | `&& \|\| !`       |
 | Comparison       | `< > <= >= != ==` |
 
 <!-- pause -->

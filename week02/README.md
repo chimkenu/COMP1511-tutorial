@@ -75,7 +75,7 @@ scanf("%lf", &d3);      // Scans a double from standard input and puts it in d3 
 | Type of Operator | Operators         |
 | ---------------- | ----------------- |
 | Arithmetic       | `+ - * / %`       |
-| Logic            | `&& \|\| !`       |
+| Logical          | `&& \|\| !`       |
 | Comparison       | `< > <= >= != ==` |
 
 ### Logic Operators
