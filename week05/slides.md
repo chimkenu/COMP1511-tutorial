@@ -1,11 +1,13 @@
-# COMP1511 Tutorial - Week 05
+---
+title: COMP1511 Tutorial - Week 05
+---
 
-## 2D Arrays
+2D Arrays
+---
+
 
 - An array variable where each element is another array
 - Can be thought of as a grid, where the first index corresponds to the row
-
-### Integer example
 
 ```c
 // Array of 3 integer arrays (each containing 4 integers), explicitly initialized
@@ -19,7 +21,7 @@ printf("%d", array[0][0]); // Prints 1
 printf("%d", array[2][1]); // Prints 10
 ```
 
-### Example for 2D array of structs
+<!-- end_slide -->
 
 ```c
 enum entity {
@@ -48,7 +50,10 @@ int main(void) {
 }
 ```
 
-## Strings
+<!-- end_slide -->
+
+Strings
+---
 
 - A string is just an **array of characters**
 - Must always end with a null terminator (`\0`)
@@ -59,18 +64,23 @@ char string[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
 char string_notation[6] = "hello";
 ```
 
-### Printing and Scanning Strings
-
 How to scan a string?
 
+<!-- pause -->
 ```c
 char input_string[1024];
 scanf("%s", input_string); // DO NOT DO THIS!!!!
 fgets(input_string, 1024, stdin); // do this instead!
 ```
 
+<!-- end_slide -->
+
+Strings, cont'd.
+---
+
 How to print a string?
 
+<!-- pause -->
 ```c
 // Printing method 1
 int i = 0;
@@ -86,6 +96,11 @@ printf("%s", string);
 fputs(string, stdout);
 ```
 
+<!-- end_slide -->
+
+Strings, cont'd
+---
+
 How to shorten (cut) a string?
 
 ```c
@@ -94,6 +109,7 @@ char string[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
 // i.e. i am only interested in the first 2 characters
 ```
 
+<!-- pause -->
 ```c
 // Cut the string at index 2
 string[2] = '\0';
@@ -105,10 +121,21 @@ printf("%s", string); // prints "he"
 > We can cut strings arbitrarily, all we do is put a '\0' at the end of the shortened string.
 > How can we do the opposite? How can you add to a string? How can you concatenate strings?
 
-### String Functions
+<!-- end_slide -->
+
+<!-- jump_to_middle -->
+
+String Functions
+---
+
+<!-- end_slide -->
+
+String Functions
+---
 
 Check if a character is lowercase?
 
+<!-- pause -->
 ```c
 // returns 1 if the given character `c` is lowercase, 0 otherwise
 int is_lowercase(char c) {
@@ -118,6 +145,7 @@ int is_lowercase(char c) {
 
 Check if a character is uppercase?
 
+<!-- pause -->
 ```c
 // returns 1 if the given character `c` is uppercase, 0 otherwise
 int is_uppercase(char c) {
@@ -125,8 +153,11 @@ int is_uppercase(char c) {
 }
 ```
 
+<!-- end_slide -->
+
 Check if a character is a letter?
 
+<!-- pause -->
 ```c
 // returns 1 if the given character `c` is a letter, 0 otherwise
 int is_letter(char c) {
@@ -134,7 +165,13 @@ int is_letter(char c) {
 }
 ```
 
-Convert a character to lowercase?
+Convert a character to lowercase (or uppercase)?
+
+<!-- pause -->
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
 
 ```c
 // returns `c` converted to lowercase, if
@@ -147,7 +184,8 @@ char to_lowercase(char c) {
     return c;
 }
 ```
-Convert a character to uppercase?
+
+<!-- column: 1 -->
 
 ```c
 // returns `c` converted to uppercase, if
@@ -161,8 +199,11 @@ char to_uppercase(char c) {
 }
 ```
 
+<!-- end_slide -->
+
 Check if character is a vowel?
 
+<!-- pause -->
 ```c
 // returns 1 if given character is a vowel (i.e. one of 'aeiou')
 //         0 otherwise
@@ -178,13 +219,10 @@ int is_vowel(char c) {
 
 Check if character is a consonant?
 
+<!-- pause -->
 ```c
 int is_consonant(char c) {
     return is_letter(c) && !is_vowel(c);
 }
 ```
-
-> Note that these functions are very common.
-> The libraries `<string.h>` and `<ctype.h>`
-> have (most) of the above functions and more!
 
