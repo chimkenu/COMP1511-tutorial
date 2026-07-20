@@ -1,0 +1,114 @@
+---
+title: COMP1511 Tutorial - Week 07
+---
+
+Announcements
+---
+
+- Assignment 1 due !!
+- Assignment 2 has been released :O
+- Mock final exam next week (during lab time)
+
+<!-- end_slide -->
+
+<!-- jump_to_middle -->
+
+Pointers
+---
+
+or, what the hell is memory??
+---
+
+<!-- end_slide -->
+
+Pointers
+---
+
+- A special kind of data type
+- Allows us to reference memory addresses and the data stored in it
+- Gives more control over data
+
+```c
+// This creates a variable called 'number'
+// with data type integer and stores the value 1
+int number = 1;
+
+// This creates a variable called 'pointer'
+// with data type integer pointer and
+// stores the memory address of 'number'
+int *pointer = &number;
+
+// works for char, double, structs, and enums as well
+char c = 'a';
+char *p = &c;
+```
+
+<!-- end_slide -->
+
+Pointers, cont'd
+---
+
+So how do we access and manipulate pointers?
+
+```c
+// This accesses the memory address that 'pointer' holds
+// (that is, 'number'), and updates the value to be 5.
+*pointer = *pointer + 1;
+number = number + 1; // this is the equivalent of the above line.
+```
+
+<!-- end_slide -->
+
+```c
+int number = 1;
+int *pointer = &number;
+
+printf("%d", *pointer); // prints '1', the value 'pointer' is pointing to
+printf("%p", pointer);  // prints the memory address of 'number',
+                        // the address stored inside 'pointer'
+
+printf("%d", number);   // prints '1', the value stored inside 'number'
+printf("%p", &number);  // prints the memory address of 'number', same as 2nd printf
+
+printf("%p", &pointer); // prints the memory address of 'pointer'.
+
+*pointer = 2;           // this 'dereferences' pointer (i.e. accessing 'number')
+                        // and updates the value to 2.
+printf("%d", number);   // this prints '2' since we updated it in the line above.
+```
+
+<!-- end_slide -->
+
+
+Command Line Arguments
+---
+
+We typically get user input using scanf like this:
+
+```c
+int main(void) {
+    int x;
+    printf("give me a number NOW!\n");
+    scanf("%d", &x);
+    printf("thanks :D\n");
+}
+```
+
+This is somewhat cumbersome, since we have to type
+input in several lines. What if we could get input in one line like `dcc`?
+
+<!-- pause -->
+
+```c
+int main(int argc, char *argv[]) {
+    // code
+}
+```
+
+```c
+int main(int argc, char **argv) {
+    // this also works! can you explain why?
+}
+```
+
+
