@@ -14,9 +14,11 @@ Admin stuff
 <!-- new_line -->
 
 - Assessment tasks
-    - Exam (50% of final grade)
-    - Assignments (2 worth 15% each)
-    - Problem Sets (Labs) (1 set per week worth 2% each)
+    - Exam (40% of final grade)
+    - Assignment 1 (20%)
+    - Assignment 2 (25%)
+    - Problem Sets (Labs) (1 set per week worth 2% each, up to 15%)
+    - Check-off (1 per week, done in person)
 
 <!-- end_slide -->
 
@@ -26,7 +28,7 @@ Admin stuff
 - Where to go for help with course work
     - Course page: `https://cgi.cse.unsw.edu.au/~cs1511/current/` (or search `comp1511` on google)
     - General help: course forum / tut-labs
-    - Specific help: help sessions (starting week 3)
+    - Specific help: help sessions (starting week 3, more info soon)
     - Special/Others didn't help: email course account `cs1511@unsw.edu.au`
 
 <!-- pause -->
@@ -45,24 +47,6 @@ Linux
 
 <!-- end_slide -->
 
-Exercise #1
----
-
-<!-- incremental_lists: true -->
-<!-- list_item_newlines: 2 -->
-1. List all the files in our current directory
-    - `ls`
-2. Create a directory called "test"
-    - `mkdir test`
-3. Move into the new directory
-    - `cd test`
-4. Create a new C file called "hello_world.c"
-    - `touch hello_world.c`
-5. Open "hello_world.c" in VSCode
-    - `code hello_world.c`
-
-<!-- end_slide -->
-
 Commands
 ---
 
@@ -74,7 +58,7 @@ Commands
 | `mkdir`       | Make (create) a new directory                 |
 | `cd`          | Open/Move to a directory                      |
 | `cd ..`       | Go back to the parent directory               |
-| `code <file>` | Open/create a file                            |
+| `code`        | Open/create a file in VS Code                 |
 | `rm`          | Remove a file                                 |
 | `rmdir`       | Remove a directory                            |
 | `mv`          | Move a file/directory (can be used to rename) |
@@ -107,7 +91,7 @@ C code features
 
 <!-- end_slide -->
 
-Exercise #2
+Exercise
 ---
 
 Write a C program that prints the face:
@@ -238,3 +222,4 @@ Let's go to the lab!
 - Make sure you are familiar with how to submit your work! Details are given at the bottom of each exercise.
 <!-- new_line -->
 - First lab (week 1) is `not marked`, but week 2 onwards will be!
+

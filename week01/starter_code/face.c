@@ -6,7 +6,7 @@
 // The program prints two simple faces
 //
 // Face 1:
-//   ~ ~
+//  ~ ~
 //  0 0
 //   o
 //   -
@@ -16,5 +16,4 @@
 //  0 0
 //   o
 //  \_/
-
 
