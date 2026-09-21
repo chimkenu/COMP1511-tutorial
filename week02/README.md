@@ -6,9 +6,9 @@ What if we wanted to do *more*, like perform calculations or interact with user 
 
 ## Variables
 
-- *Both* **store data** (e.g. a number, a character, a string, etc.)
-- Variables: **change** throughout the life of a program and **store unknown values** (e.g. user input)
-- Constants: **immutable** and store 'magic numbers' or values that are otherwise 'hard coded'
+- Both variables and constants **store data** (e.g. a number, a character, a string, etc.)
+- Variables **change** throughout the life of a program and **store unknown values** (e.g. user input)
+- Constants are **immutable** and store 'magic numbers' or values that are otherwise ('hard coded')[https://en.wikipedia.org/wiki/Hard_coding]
 
 These exist to allow computation (e.g. arithmetic) and make code readable (easier to understand,
 e.g. `length * width` instead of `5 * 4`)
@@ -22,9 +22,9 @@ e.g. `length * width` instead of `5 * 4`)
     - Can be done with: `variable_name = value;` _(no need to put the data type again)_
     - The value stored in a variable can be changed, however data type **cannot**.
 
-> [!caution] Make sure all your variables are sensibly named!
-> No "x" or "y" variables (unless provided in started code)
-> Should be considerably descriptive (e.g. length, PI)
+> Make sure all your variables are sensibly named!
+> No "x" or "y" variables (unless provided in started code);
+> Should be considerably descriptive (e.g. length, PI).
 
 ### Data Types
 
