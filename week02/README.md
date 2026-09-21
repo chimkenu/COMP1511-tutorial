@@ -1,6 +1,17 @@
 # COMP1511 Tutorial - Week 02
 
+Last week, we learned how to navigate a linux environment in order to write and compile C programs.
+Currently, the only programs we can write are programs that print out a message to the terminal.
+What if we wanted to do *more*, like perform calculations or interact with user input?
+
 ## Variables
+
+- *Both* **store data** (e.g. a number, a character, a string, etc.)
+- Variables: **change** throughout the life of a program and **store unknown values** (e.g. user input)
+- Constants: **immutable** and store 'magic numbers' or values that are otherwise 'hard coded'
+
+These exist to allow computation (e.g. arithmetic) and make code readable (easier to understand,
+e.g. `length * width` instead of `5 * 4`)
 
 - Needs to be declared and initialized
     - Declaration: `data_type variable_name;`
@@ -10,6 +21,10 @@
 - Values may be changed after initialization
     - Can be done with: `variable_name = value;` _(no need to put the data type again)_
     - The value stored in a variable can be changed, however data type **cannot**.
+
+> [!caution] Make sure all your variables are sensibly named!
+> No "x" or "y" variables (unless provided in started code)
+> Should be considerably descriptive (e.g. length, PI)
 
 ### Data Types
 
