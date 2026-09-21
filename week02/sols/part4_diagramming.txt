@@ -1,11 +1,28 @@
-print "Do you like puns?"
-scan input
-if yes:
-	print "Do you like computers more than books?"
-	scan input
-	if yes:
-		print "You will be glas to C this pun, then."
-	else:
-		print "I hope the police book you fro saying that"
-else:
-	print "That's pUnfortunate."
+print "How many days till your assignment is due?"
+scan days
+if days > 10:
+    print "Are you up to date with lectures and labs?"
+    scan up_to_date
+
+    if up_to_date == yes:
+        print "Work on your assignment."
+    else:
+        print "Catch up on them!"
+
+else if days >= 7 and days <= 10:
+    print "Have you started your assignment?"
+    scan started
+
+    if started == yes:
+        print "Great! Don’t forget to check style as you go!"
+    else:
+        print "You should start! Ask for help if you need."
+
+else (i.e days < 7):
+    print "Are you on track to finish?"
+    scan on_track
+
+    if on_track == yes:
+        print "You got this, keep at it!"
+    else:
+        print "Attend help sessions, ask your tutors and forums for assistance"
