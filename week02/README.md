@@ -100,12 +100,12 @@ scanf("%lf", &d3);      // Scans a double from standard input and puts it in d3 
 - Must use brackets to group if combining `&&` and `||` in the same expression
 - Truth table below:
 
-| A     | B     | `A && B` | `A  \|\| B` | `!A`  |
-| ----- | ----- | -------- | ----------- | ----- |
-| True  | True  | True     | True        | False |
-| True  | False | False    | True        | False |
-| False | True  | False    | True        | True  |
-| False | False | False    | False       | True  |
+| A     | B     | `A && B` | `A \|\| B` | `!A`  |
+| ----- | ----- | -------- | ---------- | ----- |
+| True  | True  | True     | True       | False |
+| True  | False | False    | True       | False |
+| False | True  | False    | True       | True  |
+| False | False | False    | False      | True  |
 
 ### Arithmetic Operators
 
