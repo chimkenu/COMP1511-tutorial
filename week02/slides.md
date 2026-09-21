@@ -9,6 +9,36 @@ Variables and Constants
 
 <!-- end_slide -->
 
+Variables and Constants
+---
+
+Last week, we learned how to navigate a linux environment in order to write and compile C programs.
+
+<!-- pause -->
+
+Currently, the only programs we can write are programs that print out a message to the terminal.
+
+> What if we wanted to do *more*, like perform calculations or interact with user input?
+
+<!-- pause -->
+
+**What is a variable? a constant?**
+
+<!-- pause -->
+
+- *Both* **store data** (e.g. a number, a character, a string, etc.)
+- Variables: **change** throughout the life of a program and **store unknown values** (e.g. user input)
+- Constants: **immutable** and store 'magic numbers' or values that are otherwise 'hard coded'
+
+These exist to allow computation (e.g. arithmetic) and make code readable (easier to understand,
+e.g. `length * width` instead of `5 * 4`)
+
+> [!caution] Make sure all your variables are sensibly named!
+> No "x" or "y" variables (unless provided in started code)
+> Should be considerably descriptive (e.g. length, PI)
+
+<!-- end_slide -->
+
 Exercise #1
 ---
 
@@ -22,57 +52,11 @@ In this short activity we will recap how to declare, initialise and print variab
 //
 // This program calculates the area of a circle
 
-#include <stdio.h>
-
 int main(void) {
     // 1. Declare the variables
-
     // 2. Initalise the variables
-
     // 3. Calculate the area of the circle
-
     // 4. Print the result
-
-    return 0;
-}
-```
-
-> [!caution] Make sure all your variables are sensibly named!
-> No "x" or "y" variables (unless provided in started code)
-> Should be considerably descriptive (e.g. int row, char cmd)
-
-<!-- end_slide -->
-
-Exercise #1 Solution
----
-
-```c
-// part1_variables
-//
-// This program was written by Marcus Alejo (z5559853)
-// on 27/07/2025
-//
-// This program calculates the area of a circle
-
-#include <stdio.h>
-
-#define PI 3.14159
-
-int main(void) {
-    // 1. Declare the variables
-    double radius;
-    double area;
-
-    // 2. Initalise the variables
-    printf("Please enter the radius of your circle: ");
-    scanf("%lf", &radius);
-
-    // 3. Calculate the area of the circle
-    area = PI * radius * radius;
-
-    // 4. Print the result
-    printf("The area of a circle with radius %lf is %lf\n", radius, area);
-
     return 0;
 }
 ```
@@ -99,6 +83,21 @@ Let's try to recall all the operators that have been discussed in the lectures.
 
 | Type of Operator | Operators         |
 | ---------------- | ----------------- |
+| Arithmetic       |                   |
+| Logical          |                   |
+| Comparison       |                   |
+
+<!-- end_slide -->
+
+Exercise #2
+---
+
+Let's try to recall all the operators that have been discussed in the lectures.
+
+<!-- alignment: center -->
+
+| Type of Operator | Operators         |
+| ---------------- | ----------------- |
 | Arithmetic       | `+ - * / %`       |
 | Logical          | `&& \|\| !`       |
 | Comparison       | `< > <= >= != ==` |
@@ -108,6 +107,7 @@ Let's try to recall all the operators that have been discussed in the lectures.
 
 What is the difference between `/` and `%`?
 <!-- pause -->
+- 5 divided by 2 is 2 remainder 1
 - `5 / 2 = 2` (the remainder `1` is discarded)
 - `5 % 2 = 1` (the quotient `2` is discarded)
 
@@ -149,6 +149,27 @@ Data Types
 | Integer        | `int`    | `1`, `100`, `-3`            | `%d`             |
 | Character      | `char`   | `'a'`, `'1'`, `'\n'`, `'$'` | `%c`             |
 | Decimal number | `double` | `1.1`, `3.0`, `-5.25`       | `%lf`            |
+
+<!-- end_slide -->
+
+Exercise #3
+---
+
+Let's try to evaluate the following expressions!
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
+`7 / 2`
+
+`(3.0 / 2) + 1`
+
+<!-- column: 1 -->
+
+`'a' + 5`
+
+`('F' - 'A') + 'a'`
 
 <!-- end_slide -->
 

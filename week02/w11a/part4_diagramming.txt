@@ -1,9 +1,0 @@
-if (Do you like puns?) {
-    if (Do you like computers more than books?) {
-        print "You will be glad to C this pun then."
-    } else {
-        print "I hope the police book you for saying that."
-    }
-} else {
-    print "That's pUnfortunate."
-}
