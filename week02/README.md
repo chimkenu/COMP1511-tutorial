@@ -8,7 +8,7 @@ What if we wanted to do *more*, like perform calculations or interact with user 
 
 - Both variables and constants **store data** (e.g. a number, a character, a string, etc.)
 - Variables **change** throughout the life of a program and **store unknown values** (e.g. user input)
-- Constants are **immutable** and store 'magic numbers' or values that are otherwise ('hard coded')[https://en.wikipedia.org/wiki/Hard_coding]
+- Constants are **immutable** and store 'magic numbers' or values that are otherwise ['hard coded'](https://en.wikipedia.org/wiki/Hard_coding)
 
 These exist to allow computation (e.g. arithmetic) and make code readable (easier to understand,
 e.g. `length * width` instead of `5 * 4`)
