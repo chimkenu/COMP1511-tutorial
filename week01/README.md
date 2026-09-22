@@ -22,6 +22,15 @@
 
 ## Linux
 
+In COMP1511, you will be working a Linux environment.
+To put it very simply, [Linux](https://en.wikipedia.org/wiki/Linux) is a family of operating systems.
+Maybe you've heard it's a kernel, but for the purposes of COMP1511, what you will actually be interacting
+with that is 'different' from what you are normally used to in your own personal computers
+is the [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant [shell](https://en.wikipedia.org/wiki/Shell_(computing)),
+or **terminal**. This is where you will be compiling and running your code.
+
+You can imagine the terminal like a text-based version of your file explorer with a little more functionality.
+
 ### Commands
 
 | Command       | Purpose                                       |
@@ -30,7 +39,7 @@
 | `mkdir`       | Make (create) a new directory                 |
 | `cd`          | Open/Move to a directory                      |
 | `cd ..`       | Go back to the parent directory               |
-| `code <file>` | Open/create a file                            |
+| `code`        | Open/create a file                            |
 | `rm`          | Remove a file                                 |
 | `rmdir`       | Remove a directory                            |
 | `mv`          | Move a file/directory (can be used to rename) |
@@ -66,9 +75,9 @@
 
 /*
 This
-Is
-A
-Multiline
+  Is
+    A
+  Multiline
 Comment
 */
 ```
@@ -97,3 +106,34 @@ int main(void) {
     return 0;
 }
 ```
+
+## Additional Material
+
+I recommend at this stage to get familiar with the environment you will be working in.
+
+Here are some things that might be useful to you before you continue on.
+
+### Organisation
+
+I recommend you create a new directory specifically for your COMP1511/1911 work.
+It usually looks like this:
+```
+$ mkdir 1511
+$ cd 1511
+$ mkdir week01
+$ cd week01
+```
+After running these commands, you now have a 1511 directory in your home directory.
+Personally, I have my files stored in the `~/Documents` directory.
+
+When you do this, remember to `cd ~/1511/week01` (or wherever you made it) to access your work.
+
+### Useful commands and shortcuts
+
+If you have finished the problem set for this week, you may have realised that you
+used a few new commands that weren't discussed in the tutorial (i.e. `give` and `1511`)
+
+A few useful commands to know going forward are:
+- `1511 style <file>` checks the [style](https://cgi.cse.unsw.edu.au/~cs1511/current/resources/style_guide.html) of your code.
+- `1511 autotest-help` or just `autotest-help` provides some helpful feedback on your most recent autotest (if something failed).
+
