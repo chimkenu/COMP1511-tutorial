@@ -2,8 +2,7 @@
 
 ## While Loops
 
-- Condition is checked before and after each execution
-  of the loop body
+- Condition is checked before each execution of the loop body
 - Condition should contain at least 1 variable, which
   changes within the loop body
 
