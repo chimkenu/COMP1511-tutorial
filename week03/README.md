@@ -200,6 +200,15 @@ Price: [ctrl+d]
 Total: 600
 ```
 
+The next example below echoes any input until you press `ctrl+d`
+
+```c
+char c;
+while (scanf("%c", &c) == 1) {
+    printf("%c");
+}
+```
+
 ## For loop (Optional)
 
 - You can do anything a `for` loop can do with a `while` loop.
