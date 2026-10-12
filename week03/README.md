@@ -170,7 +170,7 @@ enter a number: [ctrl+d]
 scanf returned -1
 ```
 
-These are the three possible outputs for a single `scanf`.
+These are the three possible outputs for a `scanf` with one variable (try adding more!).
 I first entered a valid integer, and `scanf` returned 1, meaning it successfully scanned that one integer.
 I then entered 'apple', which is certainly not an integer, and thus `scanf` returned 0, meaning it did not match the format string `%d`.
 Finally, I entered `ctrl+d`, which is the end of input, and `scanf` wants to differentiate this outcome (nothing to scan)
