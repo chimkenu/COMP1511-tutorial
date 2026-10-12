@@ -114,31 +114,6 @@ yippee!!
 
 <!-- end_slide -->
 
-Examples, cont'd
----
-
-```c
-int sum = 0;
-int item;
-printf("Price: ");
-while (scanf("%d", &item) == 1) {
-    sum += item;
-    printf("Price: ");
-}
-printf("Total: %d\n", sum);
-```
-
-```
-$ dcc example2.c -o example2
-$ ./example2
-Price: 100
-Price: 200
-Price: 300
-Price: hello
-Total: 600
-```
-
-<!-- end_slide -->
 
 2D While Loop
 ---

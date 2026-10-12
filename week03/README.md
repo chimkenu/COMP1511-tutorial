@@ -1,10 +1,50 @@
 # COMP1511 Tutorial - Week 03
 
-## While Loops
+Reminder to do style checks! (`1511 style <file>`)
 
-- Condition is checked before each execution of the loop body
-- Condition should contain at least 1 variable, which
-  changes within the loop body
+[Also, help sessions are starting this week!](https://cgi.cse.unsw.edu.au/~cs1511/current/help-sessions)
+
+Last week, we learned how to use variables and operators to calculate and control flow in a program.
+What if we wanted to do the same operation multiple times? (e.g. calculating the total expenses)
+With the current tools we have, it might have to look something like this:
+
+```c
+int sum = 0;
+int item1;
+printf("Price: ");
+scanf("%d", &item1);
+sum = sum + item1;
+
+int item2;
+printf("Price: ");
+scanf("%d", &item2);
+sum = sum + item2;
+
+int item3;
+printf("Price: ");
+scanf("%d", &item3);
+sum = sum + item3;
+
+// ...and so on
+```
+
+Is this good code? What are the limitations?
+
+Maybe we want something like this:
+
+```c
+int sum = 0;
+int item;
+printf("Price: ");
+scanf("%d", &item);
+sum += item;
+-> go back to printf and repeat
+```
+
+## Loops
+
+Loops allow us to repeat the execution of some code. C allows us to use the `while` keyword
+to construct a while loop:
 
 ```c
 while (/* some condition is true */) {
@@ -12,6 +52,13 @@ while (/* some condition is true */) {
     // execute some code
 }
 ```
+
+- Condition is checked before each execution of the loop body
+- Condition should contain at least 1 variable, which
+  changes within the loop body
+
+Depending on what you are trying to do, there are patterns or similarities in the structure
+of a loop. 
 
 ### Examples
 
@@ -134,9 +181,34 @@ Scanned 1 characters b
 > ./scanf
 a
 Scanned 1 characters a
-[CTRL+D]
+[ctrl+d]
 Scanned 0 characters a
 ```
+
+Example using while loop:
+
+```c
+int sum = 0;
+int item;
+printf("Price: ");
+while (scanf("%d", &item) == 1) {
+    sum += item;
+    printf("Price: ");
+}
+printf("Total: %d\n", sum);
+```
+
+```
+$ dcc example2.c -o example2
+$ ./example2
+Price: 100
+Price: 200
+Price: 300
+Price: [ctrl+d]
+Total: 600
+```
+
+<!-- end_slide -->
 
 ## For loop (Optional)
 

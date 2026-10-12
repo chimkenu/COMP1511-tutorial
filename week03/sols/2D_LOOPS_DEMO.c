@@ -13,16 +13,16 @@
 int main(void) {
     int row = 0;
     while (row < MAX_ROW) {
-        printf("Outer loop, row = %d\n", row);
 
         // inner loop starts here
         int col = 0;
         while (col < MAX_COL) {
-            printf(" > Inner loop, col = %d\n", col);
+            printf("(%d, %d) ", row, col);
             col++;
         }
         // end of inner loop
 
+        printf("\n");
         row++;
     }
 }
