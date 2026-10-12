@@ -2,52 +2,57 @@
 title: COMP1511 Tutorial - Week 05
 ---
 
-2D Arrays
+Announcements
 ---
 
+Revision sessions (Week 6):
+- Week 6 Tuesday 20/10/2026 2pm-4pm in Bongo Lab K17 G07A
+- Week 6 Friday 23/10/2026 12pm-2pm in Bongo Lab K17 G07A
+
+<!-- end_slide -->
+
+Last week, we learned how to use arrays to store a collection of values.
+
+What if we wanted to store more complex data, like a game of sudoku, chess, or minesweeper?
+
+<!-- pause -->
+
+Using a single array, you might be interested in storing a 3x3 'sudoku' game like so:
+
+```c
+int array[9] = {
+    1, 2, 3,
+    4, 5, 6,
+    7, 8, 9
+};
+
+array[0]; // this is 1
+array[7]; // this is 8
+
+int row = 1;
+int col = 1;
+int index = (3 * row) + (col); // this is 3 + 1 = 4
+array[index]; // this is 5
+```
+
+<!-- end_slide -->
+
+2D Arrays
+---
 
 - An array variable where each element is another array
 - Can be thought of as a grid, where the first index corresponds to the row
 
 ```c
 // Array of 3 integer arrays (each containing 4 integers), explicitly initialized
-int array[3][4] = {{1, 2, 3, 4}, {5, 6, 7, 8}, {9, 10, 11, 12}};
-// Represented as a grid like so:
-// 1  2  3  4
-// 5  6  7  8
-// 9 10 11 12
+int array[3][4] = {
+    {1, 2, 3, 4},
+    {5, 6, 7, 8},
+    {9, 10, 11, 12}
+};
 
 printf("%d", array[0][0]); // Prints 1
 printf("%d", array[2][1]); // Prints 10
-```
-
-<!-- end_slide -->
-
-```c
-enum entity {
-    STAR,
-    PLANET,
-    NEBULA,
-    SPACESHIP,
-    EMPTY
-};
-
-struct celestial_body {
-    enum entity entity;
-    int points;
-};
-
-int main(void) {
-    // This creates a 5x5 array of celestial bodies
-    // Each element in the galaxy has an entity
-    struct celestial_body galaxy[5][5];
-
-    // Example setting the point (0, 0) to a spaceship
-    galaxy[0][0].entity = SPACESHIP;
-    galaxy[0][0].points = 100;
-
-    return 0;
-}
 ```
 
 <!-- end_slide -->
@@ -78,11 +83,17 @@ fgets(input_string, 1024, stdin); // do this instead!
 Strings, cont'd.
 ---
 
+> char string[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
+
+<!-- column_layout: [1, 1] -->
+
+<!-- column: 0 -->
+
 How to print a string?
 
 <!-- pause -->
 ```c
-// Printing method 1
+// Printing method 1 (conditional loop)
 int i = 0;
 while (string[i] != '\0') {
     printf("%c", string[i]);
@@ -96,133 +107,39 @@ printf("%s", string);
 fputs(string, stdout);
 ```
 
-<!-- end_slide -->
-
-Strings, cont'd
----
-
-How to shorten (cut) a string?
-
-```c
-char string[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
-// lets say i want to cut the string at index 2
-// i.e. i am only interested in the first 2 characters
-```
-
-<!-- pause -->
-```c
-// Cut the string at index 2
-string[2] = '\0';
-printf("%s", string); // prints "he"
-// the whole array: {'h', 'e', '\0', 'l', 'o', '\0'}
-```
-
-> [!caution] Note that the array is still of size 6.
-> We can cut strings arbitrarily, all we do is put a '\0' at the end of the shortened string.
-> How can we do the opposite? How can you add to a string? How can you concatenate strings?
-
-<!-- end_slide -->
-
-<!-- jump_to_middle -->
-
-String Functions
----
-
-<!-- end_slide -->
-
-String Functions
----
-
-Check if a character is lowercase?
-
-<!-- pause -->
-```c
-// returns 1 if the given character `c` is lowercase, 0 otherwise
-int is_lowercase(char c) {
-    return 'a' <= c && c <= 'z';
-}
-```
-
-Check if a character is uppercase?
-
-<!-- pause -->
-```c
-// returns 1 if the given character `c` is uppercase, 0 otherwise
-int is_uppercase(char c) {
-    return 'A' <= c && c <= 'Z';
-}
-```
-
-<!-- end_slide -->
-
-Check if a character is a letter?
-
-<!-- pause -->
-```c
-// returns 1 if the given character `c` is a letter, 0 otherwise
-int is_letter(char c) {
-    return is_lowercase(c) || is_uppercase(c);
-}
-```
-
-Convert a character to lowercase (or uppercase)?
-
-<!-- pause -->
-
-<!-- column_layout: [1, 1] -->
-
-<!-- column: 0 -->
-
-```c
-// returns `c` converted to lowercase, if
-//             it was an uppercase letter
-//         `c` unmodified, otherwise
-char to_lowercase(char c) {
-    if (is_uppercase(c)) {
-        return c + ('a' - 'A');
-    }
-    return c;
-}
-```
-
 <!-- column: 1 -->
 
+Can't we treat strings like normal arrays?
+
+<!-- pause -->
+
 ```c
-// returns `c` converted to uppercase, if
-//             it was an lowercase letter
-//         `c` unmodified, otherwise
-char to_uppercase(char c) {
-    if (is_lowercase(c)) {
-        return c - ('a' - 'A');
-    }
-    return c;
+// Why not a counting loop?
+int i = 0;
+while (i < 6) {
+    printf("%c", string[i]);
+    i++;
 }
 ```
+
+What are the limitations of the above implementation?
 
 <!-- end_slide -->
 
-Check if character is a vowel?
+String Operations
+---
 
-<!-- pause -->
+> Your turn! Try to implement these string functions:
+
 ```c
-// returns 1 if given character is a vowel (i.e. one of 'aeiou')
-//         0 otherwise
-int is_vowel(char c) {
-    char lower = to_lowercase(c);
-    return lower == 'a' ||
-           lower == 'e' ||
-           lower == 'i' ||
-           lower == 'o' ||
-           lower == 'u';
-}
-```
+// returns the number of lowercase characters in a string
+int count_lowercase(char string[MAX_CHARS]);
 
-Check if character is a consonant?
+// converts all vowels in a string to uppercase
+void make_vowels_uppercase(char string[MAX_CHARS]);
 
-<!-- pause -->
-```c
-int is_consonant(char c) {
-    return is_letter(c) && !is_vowel(c);
-}
+// isolates the first 'word' in a sentence
+// "This is a string" -> "This"
+void delete_following_words(char string[MAX_CHARS]);
 ```
 
