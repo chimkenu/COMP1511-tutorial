@@ -4,43 +4,6 @@ Reminder to do style checks! (`1511 style <file>`)
 
 [Also, help sessions are starting this week!](https://cgi.cse.unsw.edu.au/~cs1511/current/help-sessions)
 
-Last week, we learned how to use variables and operators to calculate and control flow in a program.
-What if we wanted to do the same operation multiple times? (e.g. calculating the total expenses)
-With the current tools we have, it might have to look something like this:
-
-```c
-int sum = 0;
-int item1;
-printf("Price: ");
-scanf("%d", &item1);
-sum = sum + item1;
-
-int item2;
-printf("Price: ");
-scanf("%d", &item2);
-sum = sum + item2;
-
-int item3;
-printf("Price: ");
-scanf("%d", &item3);
-sum = sum + item3;
-
-// ...and so on
-```
-
-Is this good code? What are the limitations?
-
-Maybe we want something like this:
-
-```c
-int sum = 0;
-int item;
-printf("Price: ");
-scanf("%d", &item);
-sum += item;
--> go back to printf and repeat
-```
-
 ## Loops
 
 Loops allow us to repeat the execution of some code. C allows us to use the `while` keyword
@@ -60,10 +23,12 @@ while (/* some condition is true */) {
 Depending on what you are trying to do, there are patterns or similarities in the structure
 of a loop. 
 
-### Examples
+### Counting Loop
+
+Has a variable (counter) that starts at some initial value (usually 0)
+and increments (usually by 1) until it reaches a particular bound.
 
 ```c
-// Count loop
 int counter = 0;
 while (counter < MAX) {
     // Do something here
@@ -73,20 +38,41 @@ while (counter < MAX) {
     // counter = counter + 1;
     // counter += 1;
 }
+```
 
-// Conditional/Sentinal loop
+### Sentinel loop
+
+The variable in the condition is either a true or false value (usually 0 or 1)
+and the loop runs while the variable (called a flag) is one of these two possible values.
+
+```c
 char answer = 'n';
 while (answer != 'y') {
     // Do something here
-    scanf(" %c", &answer); // update value of answer
+    scanf(" %c", &answer); // update value of answer (either y or n)
 }
+```
+
+### Conditional loop
+
+Umbrella term for literally any other loop that doesn't match the first two.
+
+```c
+int x;
+printf("Give me an even number: ");
+while (scanf("%d", &x) == 1 && x % 2 == 1) {
+    printf("No, %d is not even. Try again: ");
+}
+printf("Thanks.");
 ```
 
 ## 2D While Loop
 
 - Just a while loop where its body contains another loop
+- These are usually nested counting loops (a counting loop inside another counting loop)
 
 ```c
+// outer loop start
 int row = 0;
 while (row < MAX_ROW) {
     printf("Outer loop running, row = %d\n", row);
@@ -101,6 +87,7 @@ while (row < MAX_ROW) {
 
     row++;
 }
+// outer loop end
 ```
 
 ## Structs
@@ -155,7 +142,7 @@ int main(void) {
 - `scanf` will continue scanning from where it previously stopped
 - This means you can give input to multiple `scanf` calls on the same line
 
-Try the program below.
+Try the program below. (please)
 
 ```c
 #include <stdio.h>
