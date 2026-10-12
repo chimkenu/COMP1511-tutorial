@@ -2,6 +2,9 @@
 
 > Given a list of strictly positive integers, return the first prime number. If the list does not contain any primes, return -1.
 
+A prime number is defined to be a positive integer that is divisible only by 1 and itself.
+We do not count 1 as a prime number.
+
 This question can use either a 1D array or a linked list.
 It is recommended to write a solution for both data structures.
 
@@ -9,10 +12,10 @@ Below are the function prototypes to implement:
 
 ```c
 // 1D ARRAY VERSION
-int find_prime(int arr[], int size);
+int find_prime_array(int arr[], int size);
 
 // LINKED LIST VERSION
-int find_prime(struct node *head);
+int find_prime_list(struct node *head);
 ```
 
 ## Example Usage
@@ -67,8 +70,8 @@ int main(int argc, char *argv[]) {
     int *arr = to_array(&argv[1], size);
     struct node *list = to_list(arr, size);
 
-    printf("find_prime array: %d\n", find_prime_array(arr, size));
-    printf("find_prime list: %d\n", find_prime_list(list));
+    printf("find_prime_array: %d\n", find_prime_array(arr, size));
+    printf("find_prime_list: %d\n", find_prime_list(list));
 
     free(arr);
     free_list(list);
@@ -124,6 +127,7 @@ void free_list(struct node *head) {
 
 To test your understanding, see if you can modify your existing code to do the following:
 
+0. Count the number of prime numbers in a given list.
 1. Find the last prime in the list (or more generally, find the *n*th prime in the list).
 2. Print "All Prime" if there are only prime numbers in the list.
 3. Find a composite number in the list that is divisible by all the primes in the same list.
@@ -131,4 +135,100 @@ To test your understanding, see if you can modify your existing code to do the f
 Variations 2 and 3 need more than a small modification in the code, with 3 having a noticable jump in difficulty.
 
 > Email me if you have any questions about these!
+
+## Solution
+
+[*click me for the full solution*](../sols/q1-primes.c)
+
+The solution to this involves two important parts.
+
+### Linear search
+
+The solution invloves a [linear search](https://en.wikipedia.org/wiki/Linear_search), which
+is a fancy way of saying we are going to check each element of the array one by one in order.
+Recall how to print all the elements in an array:
+
+```c
+int find_prime_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        printf("%d\n", arr[i]);
+    }
+    return -1;
+}
+```
+
+This is *almost* a linear search, you just need to add an if statement to choose a particular element.
+We specifically want to choose *prime* elements. For now, I propose we use a function called `is_prime`,
+that can tell us whether a given number is prime.
+
+```c
+int find_prime_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (is_prime(arr[i]) {
+            printf("%d\n", arr[i]);
+        }
+    }
+    return -1;
+}
+```
+
+The code above will print out all prime elements in the array.
+If we wanted to print out at most once, try to exit the loop after finding the first instance.
+```c
+int find_prime_array(int arr[], int size) {
+    for (int i = 0; i < size; i++) {
+        if (is_prime(arr[i]) {
+            return arr[i]; // this return here will exit the loop/function early,
+                           // right after finding the first instance of a prime.
+        }
+    }
+    return -1;
+}
+```
+
+Since the problem is asking us to return the prime number rather than print it, I also removed the printf statement.
+
+### Primality test
+
+The code above will work if we have this magic function `is_prime`.
+It is typical to do this; using a function *before* you implement it, so long as you know what it should do.
+In this case it is clear: `is_prime` is given a number, and outputs a true value if the given number is prime.
+This creates the following function signature:
+
+```c
+int is_prime(int n);
+```
+
+The return value here is either 1 (true) or 0 (false).
+Now the task is implementing a [primality test](https://en.wikipedia.org/wiki/Primality_test):
+a way to check if a number is prime.
+
+Here it is useful (necessary) to know the definition of a prime number.
+We know that a number `n` can only be divisible by numbers that are smaller
+than `n`, and hence we only need to check numbers from the range `(1, n)`(exclusive)
+and see if there exists a number in that range that divides `n`.
+
+That is, if we can find a number in from 1 to `n` that divides `n`,
+then we know `n` is not prime. This statement sounds [linear search](#linear-search)-able to me.
+We can literally check each number starting from 2 and count up and see if that number divides `n`.
+
+Now we just need to remember how to check if a number divides another number.
+Divisibility can be checked using the modulo `%` operator.
+
+```c
+int is_prime(int n) {
+    // note that this for loop excludes 1 and n
+    // and only checks integers between those numbers.
+    for (int i = 2; i < n; i++) {
+        if (n % i == 0) {
+            return 0; // i found a number that is not 1 or n
+                      // that can divide n, hence n is not prime.
+        }
+    }
+    return 1; // i looked at all the integers between 1 and n
+              // and none divide n, so n is prime.
+}
+```
+
+This completes the solution. See if you can write a faster primality test.
 
