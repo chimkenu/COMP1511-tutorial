@@ -148,44 +148,49 @@ int main(void) {
 }
 ```
 
-## `scanf` in a loop
+## Demystifying `scanf()`
 
-- Return value of `scanf` tells how many variables were successfully scanned
-- `Ctrl+D` means "end of input", so any remaining `scanf` in the code doesn't scan
+- Return value of `scanf` corresponds to how many variables were successfully scanned
+- Typing `ctrl+d` on the terminal means "end of input"; `scanf` can no longer read any input following this.
 - `scanf` will continue scanning from where it previously stopped
 - This means you can give input to multiple `scanf` calls on the same line
-- See below for an example program
+
+Try the program below.
 
 ```c
-// THE CODE (Assume its in a file called `scanf.c`)
-char letter1 = '\0';
-int scanf_return = scanf(" %c %c", &letter);
-printf("Scanned %d characters: %c\n", scanf_return, letter);
-scanf_return = scanf(" %c", &letter);
-printf("Scanned %d characters: %c\n", scanf_return, letter);
-
-// EXAMPLE RUNTIME 1
-> ./scanf
-a
-Scanned 1 characters a
-b
-Scanned 1 characters b
-
-// EXAMPLE RUNTIME 2
-> ./scanf
-ab
-Scanned 1 characters a
-Scanned 1 characters b
-
-// EXAMPLE RUNTIME 3
-> ./scanf
-a
-Scanned 1 characters a
-[ctrl+d]
-Scanned 0 characters a
+#include <stdio.h>
+int main(void) {
+    int number;
+    printf("enter a number: ");
+    int return_value = scanf("%d", &number);
+    printf("scanf returned %d\n", return_value);
+}
 ```
 
-Example using while loop:
+This is for you to test inputs and see what return values you will get.
+Here is an example below that you might see:
+
+```
+$ dcc test.c -o test
+$ ./test
+enter a number: 67
+scanf returned 1
+$ ./test
+enter a number: apple
+scanf returned 0
+$ ./test
+enter a number: [ctrl+d]
+scanf returned -1
+```
+
+These are the three possible outputs for a single `scanf`.
+I first entered a valid integer, and `scanf` returned 1, meaning it successfully scanned that one integer.
+I then entered 'apple', which is certainly not an integer, and thus `scanf` returned 0, meaning it did not match the format string `%d`.
+Finally, I entered `ctrl+d`, which is the end of input, and `scanf` wants to differentiate this outcome (nothing to scan)
+from the above case (scanned something that is not an integer). In this case `scanf` returns -1.
+
+Now the example below scans numbers until the user types `ctrl+d`.
+Afterwards, it prints the sum.
 
 ```c
 int sum = 0;
@@ -207,8 +212,6 @@ Price: 300
 Price: [ctrl+d]
 Total: 600
 ```
-
-<!-- end_slide -->
 
 ## For loop (Optional)
 
@@ -235,7 +238,7 @@ int main(void) {
     };
 
     int i = 0;
-    int j = 0;
+    int j = 0; // the problem is this line. can you see why?
     while (i < SIZE) {
         while (j < SIZE) {
             printf("%d ", array[i][j]);
@@ -261,7 +264,7 @@ int main(void) {
     };
 
     for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE; j++) {
+        for (int j = 0; j < SIZE; j++) { // you are less likely to forget to reset j = 0 here.
             printf("%d ", array[i][j]);
         }
         printf("\n");
