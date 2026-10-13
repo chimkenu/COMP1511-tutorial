@@ -25,9 +25,9 @@ Here, I will be going over some final exam problems you may encounter
 
 The COMP1511 final exam has 11 questions, typically divided into:
 
-1. Hurdle questions (questions 1-4, worth 48 marks total),
-2. Debugging questions (questions 5-8, worth 20 marks total), and
-3. Open-ended questions (questions 9-11, worth 32 marks total),
+1. [Hurdle questions](#Hurdles) (questions 1-4, worth 48 marks total),
+2. [Debugging questions](#Debugging) (questions 5-8, worth 20 marks total), and
+3. [Open-ended questions](#Open-ended) (questions 9-11, worth 32 marks total),
 
 for a total of 100 marks.
 
@@ -92,14 +92,124 @@ int find_prime_list(struct node *head);
 I **highly** suggest you make an attempt to solve these problems.
 Most of the learning comes from doing, and not reading the solution.
 
+Searching algorithms usually use a loop and a condition. Like:
+
+```c
+for (int i = 0; i < size; i++) {
+    if (some_condition(arr[i])) {
+        return 1; // found it!
+        // you usually exit the loop here since youve found it already
+    }
+}
+return 0; // i did not find it :(
+```
+
+Where `some_condition(arr[i])` returns true or false (1 or 0) given the *i*th element of an array.
+It's sometimes helpful to make a helper function as conditions are sometimes more complicated than just
+a single comparison.
+
 #### Counting
+
+Some problems may ask you to count, sum, or otherwise find an aggregate of a given list.
+
+Simple examples include finding the sum of all elements of an integer array/linked list, or
+[counting the number of prime numbers in a list](write-ups/q1-primes.md#Variations).
+
+I suggest you attempt the above variation before moving on.
+
+Solutions to counting problems usually involve looping over the data structure
+and keeping track of the aggregate (sum, count, etc.) in a separate variable.
+
+```c
+// example over 2d array
+int count = 0; // start with reasonable initial value.
+               // sums and counts start at 0 but products should start at 1
+// 2d loop over array
+for (int row = 0; row < ROWS; row++) {
+    for (int col = 0; col < COLS; col++) {
+        // at this point we are looking at the element arr[row][col]
+        if (some_condition(arr[row][col])) {
+            count++; // increase count if the current element (arr[row][col])
+                     // matches a certain condition
+        }
+    }
+}
+return count; // after the 2d loop, we would have checked all elements,
+              // and thus the count variable must match the true count (of whatever we are counting)
+```
+
+Sometimes you might have to keep track of what you've seen before.
+In this case, you might have to either store a [flag](https://www.geeksforgeeks.org/dsa/use-of-flag-in-programming/)
+in a variable or do some computation with the previous elements.
+
+> **Q2.** Count the number of words in a given string.
+
+[*click me for the full question 2*](write-ups/q2-words.md)
+
+> **Q3.** Find the number of unique numbers in a given list.
+
+[*click me for the full question 3*](write-ups/q3-unique.md)
+
+Finally, the condition might involve more than a single element.
+That is, you may need to consider surrounding data/elements in your list.
+
+> **Q4.** Given a 2D array of doubles, find the number of *critical points*.
+
+[*click me for the full question 4*](write-ups/q4-crit.md)
+
+#### Insertion or Deletion
+
+This problem is unique to linked list hurdles (though it is possible to do them in arrays).
+You might be asked to insert or delete an element at a particular position or between two elements
+with a certain property. 
+
+
 
 ### Debugging
 
-#### Compilation Errors
+Debugging questions are worth the least marks but should take less time
+than hurdle questions. This is because you are given starter code that
+is close to the true solution, with only a handful of errors.
+
+#### Syntax Errors
+
+This kind of error is caught by the compiler, and the easiest to resolve.
+You usually start with these errors. I would always try to compile the
+solution first, and resolve any errors the compiler raises. For example:
+
+```c
+int a
+scan("%c", a);
+```
+
+The code above has 4 syntax errors, all of which a compiler will complain about.
+Eventually, despite resolving all the syntax errors in the starter code,
+the program may still be incorrect because of:
 
 #### Logical Errors
 
+This kind of error occurs when the algorithm or program itself does not
+arrive at the correct output. This is caused usually by:
+1. Incorrect order of operations
+2. Rounding errors
+3. Overflow or underflow
+Note that this list is not exhaustive.
+
+To resolve these, you need to know what the program is trying to do.
+
 #### Last Resort
 
+If you can't seem to appease the compiler or see what the logical error might be,
+nobody is stopping you from writing the entire program yourself.
+
+Since the problem is also given, you can treat this like an hurdle/open-ended
+question, and just write code from scratch. Though, this kind of defeats the
+spirit of the problem.
+
 ### Open-ended
+
+Now I don't actually know what they're called (or if these type of questions even have a name), but I call
+them open-ended questions because they *sometimes* (1) do not give you any starter code, and (2) let you decide
+which of the two data structures to use to solve the problem instead of imposing one on you. I have seen q10s and 11s
+that do not meet this criteria so `¯\_(ツ)_/¯`.
+
