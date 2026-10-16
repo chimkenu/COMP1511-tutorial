@@ -163,7 +163,9 @@ This problem is unique to linked list hurdles (though it is possible to do them 
 You might be asked to insert or delete an element at a particular position or between two elements
 with a certain property. 
 
+> **Q5.** Given a linked list of integers, delete all elements that are out of order.
 
+[*click me for the full question 5*](write-ups/q5-sort.md)
 
 ### Debugging
 
@@ -178,8 +180,8 @@ You usually start with these errors. I would always try to compile the
 solution first, and resolve any errors the compiler raises. For example:
 
 ```c
-int a
-scan("%c", a);
+int num
+scan("%c", num);
 ```
 
 The code above has 4 syntax errors, all of which a compiler will complain about.
