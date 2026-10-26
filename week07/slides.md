@@ -6,8 +6,8 @@ Announcements
 ---
 
 - Assignment 1 due !!
-- Assignment 2 has been released :O
-- Mock final exam next week (during lab time)
+- Assignment 2 will be released this week :(
+- Lab exam next week (practice for hurdle questions in final exam)
 
 <!-- end_slide -->
 
@@ -16,8 +16,34 @@ Announcements
 Pointers
 ---
 
-or, what the hell is memory??
----
+<!-- end_slide -->
+
+```c
+void increment(int x) {
+    x = x + 1;
+}
+
+int main(void) {
+    int x = 5;
+    increment(x);
+    printf("%d\n", x);
+    return 0;
+}
+```
+
+- What value gets printed out? Why?
+
+<!-- pause -->
+
+- Is `x` in `increment` the same as `x` in `main`?
+
+<!-- pause -->
+
+- How does the computer know which `x` is which?
+
+<!-- pause -->
+
+- How can we make `increment(x)` work as intended?
 
 <!-- end_slide -->
 
@@ -51,10 +77,13 @@ Pointers, cont'd
 So how do we access and manipulate pointers?
 
 ```c
+int number = 1;
+int *pointer = &number;
+
 // This accesses the memory address that 'pointer' holds
-// (that is, 'number'), and updates the value to be 5.
+// (that is, 'number'), and updates the value to be number + 1 (which is 2).
 *pointer = *pointer + 1;
-number = number + 1; // this is the equivalent of the above line.
+// number = number + 1; // this is the equivalent of the above line.
 ```
 
 <!-- end_slide -->
@@ -88,7 +117,7 @@ We typically get user input using scanf like this:
 ```c
 int main(void) {
     int x;
-    printf("give me a number NOW!\n");
+    printf("give me a number NOW! ");
     scanf("%d", &x);
     printf("thanks :D\n");
 }
