@@ -23,7 +23,7 @@ the head of the updated linked list.
 
 Since you're deleting elements from a linked list,
 make sure you do not have any memory leaks.
-Compile with valgrind.
+Compile or test with a memory leak checker like [valgrind](https://en.wikipedia.org/wiki/Valgrind)
 
 ## Example Usage
 
