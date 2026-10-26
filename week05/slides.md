@@ -7,7 +7,6 @@ Announcements
 
 Revision sessions (Week 6):
 - Week 6 Tuesday 20/10/2026 2pm-4pm in Bongo Lab K17 G07A
-- Week 6 Friday 23/10/2026 12pm-2pm in Bongo Lab K17 G07A
 
 <!-- end_slide -->
 

@@ -92,9 +92,7 @@ How to shorten (cut) a string?
 char string[6] = {'h', 'e', 'l', 'l', 'o', '\0'};
 // lets say i want to cut the string at index 2
 // i.e. i am only interested in the first 2 characters
-```
 
-```c
 // Cut the string at index 2
 string[2] = '\0';
 printf("%s", string); // prints "he"
@@ -103,88 +101,9 @@ printf("%s", string); // prints "he"
 
 > [!caution] Note that the array is still of size 6.
 > We can cut strings arbitrarily, all we do is put a '\0' at the end of the shortened string.
-> How can we do the opposite? How can you add to a string? How can you concatenate strings?
+> How can we do the opposite? How can you add to a string? See [concatenation](https://www.geeksforgeeks.org/computer-science-fundamentals/concatenation-of-two-strings/)
 
 ### String Functions
 
-Check if a character is lowercase?
 
-```c
-// returns 1 if the given character `c` is lowercase, 0 otherwise
-int is_lowercase(char c) {
-    return 'a' <= c && c <= 'z';
-}
-```
-
-Check if a character is uppercase?
-
-```c
-// returns 1 if the given character `c` is uppercase, 0 otherwise
-int is_uppercase(char c) {
-    return 'A' <= c && c <= 'Z';
-}
-```
-
-Check if a character is a letter?
-
-```c
-// returns 1 if the given character `c` is a letter, 0 otherwise
-int is_letter(char c) {
-    return is_lowercase(c) || is_uppercase(c);
-}
-```
-
-Convert a character to lowercase?
-
-```c
-// returns `c` converted to lowercase, if
-//             it was an uppercase letter
-//         `c` unmodified, otherwise
-char to_lowercase(char c) {
-    if (is_uppercase(c)) {
-        return c + ('a' - 'A');
-    }
-    return c;
-}
-```
-Convert a character to uppercase?
-
-```c
-// returns `c` converted to uppercase, if
-//             it was an lowercase letter
-//         `c` unmodified, otherwise
-char to_uppercase(char c) {
-    if (is_lowercase(c)) {
-        return c - ('a' - 'A');
-    }
-    return c;
-}
-```
-
-Check if character is a vowel?
-
-```c
-// returns 1 if given character is a vowel (i.e. one of 'aeiou')
-//         0 otherwise
-int is_vowel(char c) {
-    char lower = to_lowercase(c);
-    return lower == 'a' ||
-           lower == 'e' ||
-           lower == 'i' ||
-           lower == 'o' ||
-           lower == 'u';
-}
-```
-
-Check if character is a consonant?
-
-```c
-int is_consonant(char c) {
-    return is_letter(c) && !is_vowel(c);
-}
-```
-
-> Note that these functions are very common.
-> The libraries `<string.h>` and `<ctype.h>`
-> have (most) of the above functions and more!
 
