@@ -1,16 +1,27 @@
+// Count Alphabetical Pairs
+//
+// Given an array of characters, count the number of 'alphabetical pairs'.
+// An alphabetical pair is a consecutive pair of alphabetic characters of
+// the same case whose second element succeeds the first (in the alphabet).
+//
+// Example: in the string "abCDF", we have
+// 1. "ab" is an alphabetical pair
+// 2. "bC" is NOT an alphabetical pair, since they do not share the same case
+// 3. "CD" is an alphabetical pair
+// 4. "DF" is NOT an alphabetical pair, since 'F' is not the successor of 'D'
+// in the example above, the number of alphabetical pairs is 2.
+//
+// Solution below:
+
 #include <stdio.h>
 
 #define MAX_SIZE 100
 
 int count_alphabetical_pairs(int size, char array[MAX_SIZE]);
 
-// "abcdef"
-// 'alphabetical_pairs' => 'a' -> 'b', 'a' -> 'B' X
-// "aBC" 1
-
 int main(void) {
-    char test_array[MAX_SIZE] = {'l', 'm', 'n', 'o'};
-    int size = 4;
+    char test_array[MAX_SIZE] = {'a', 'b', 'C', 'D', 'F'};
+    int size = 5;
     int result = count_alphabetical_pairs(size, test_array);
     printf("%d\n", result);
     return 0;
@@ -28,22 +39,6 @@ int count_alphabetical_pairs(int size, char array[MAX_SIZE]) {
     }
     return count;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*
 

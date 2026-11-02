@@ -1,3 +1,13 @@
+// Maximum Consecutive Row Difference
+//
+// Given a 2D array of integers, find the maximum difference between consecutive rows.
+// For any two consecutive (or adjacent) rows in a 2D grid, the difference is calculated
+// by taking the sum of all the elements in each row and taking the absolute value of
+// their difference. The maximum is the greatest difference any two consecutive rows
+// can make. See example in main function.
+//
+// Solution below:
+
 #include <stdio.h>
 
 #define NUM_COLS 5
@@ -7,12 +17,12 @@ int max_consec_row_diff(int num_rows, int array[MAX_ROWS][NUM_COLS]);
 
 int main(void) {
     int test_array[MAX_ROWS][NUM_COLS] = {
-        {3, 5, 1, 2, 0}, // array[i]
-        {6, 1, 5, 4, 3}, // array[i + 1]
-        {1, 6, 2, 3, 7},
-        {19, 0, 0, 0, 0},
-        {0, 5, 1, 2, 3},
-    }; // expected max 8
+        {3, 5, 1, 2, 0}, // 3 + 5 + 1 + 2 + 0 = 11
+        {6, 1, 5, 4, 3}, // 6 + 1 + 5 + 4 + 3 = 19
+        {1, 6, 2, 3, 4}, // 1 + 6 + 2 + 3 + 4 = 16
+        {12, 0, 0, 0, 0},// 12+ 0 + 0 + 0 + 0 = 12
+        {0, 5, 1, 2, 3}, // 0 + 5 + 1 + 2 + 3 = 11
+    }; // expected max 8 = |11 - 19|
 
     int result = max_consec_row_diff(5, test_array);
     printf("%d\n", result);
@@ -49,15 +59,4 @@ int max_consec_row_diff(int num_rows, int array[MAX_ROWS][NUM_COLS]) {
 
     return max;
 }
-
-
-
-
-
-
-
-
-
-
-
 
